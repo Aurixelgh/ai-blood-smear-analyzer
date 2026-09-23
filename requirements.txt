@@ -10,9 +10,12 @@ numpy==2.5.2
 pillow==12.3.0
 scikit-learn==1.9.0
 opencv-python-headless==5.0.0.93
-# CPU-only builds for Streamlit Community Cloud (no CUDA available there)
-torch==2.14.0+cpu
-torchvision==0.29.0+cpu
+# CPU-only builds for Streamlit Community Cloud (no CUDA available there).
+# The "+cpu" local version suffix only resolves against PyTorch's own wheel
+# index, not standard PyPI -- point pip/uv at it explicitly instead.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.0
+torchvision==0.29.0
 streamlit==1.63.0
 ultralytics==8.4.140
 pytest==9.1.1
