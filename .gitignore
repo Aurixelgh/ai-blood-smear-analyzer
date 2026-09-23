@@ -1,0 +1,37 @@
+# Raw and processed data are large, reproducible via scripts/, and (for
+# several sources) not license-clear for redistribution -- see
+# datasets/dataset_registry.csv. Never commit them.
+datasets/raw/
+datasets/processed/
+datasets/splits/
+
+# Trained weights are large binaries reproducible via scripts/train_*.py.
+models/*.onnx
+
+# Ultralytics/YOLO training run artifacts
+experiments/
+runs/
+*.pt
+
+# BUT ship the trained models the app needs at runtime
+!models/classifier_v1.pt
+!models/detector_v1.pt
+
+# Generated detection config -- written by scripts/train_detector.py with a
+# machine-specific absolute dataset path; regenerated on every training run.
+configs/txl_pbc_detection.yaml
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml

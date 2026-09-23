@@ -1,0 +1,91 @@
+{
+  "confidence_threshold": 0.25,
+  "iou_match_threshold": 0.5,
+  "total_images": 126,
+  "total_ground_truth_boxes": 1881,
+  "total_predicted_boxes": 2451,
+  "per_class_metrics": {
+    "WBC": {
+      "tp": 131,
+      "fp": 3,
+      "fn": 2,
+      "precision": 0.9776119402985075,
+      "recall": 0.9849624060150376,
+      "f1": 0.9812734082397004
+    },
+    "RBC": {
+      "tp": 1676,
+      "fp": 576,
+      "fn": 23,
+      "precision": 0.7442273534635879,
+      "recall": 0.9864626250735727,
+      "f1": 0.8483928119463429
+    },
+    "Platelet": {
+      "tp": 48,
+      "fp": 17,
+      "fn": 1,
+      "precision": 0.7384615384615385,
+      "recall": 0.9795918367346939,
+      "f1": 0.8421052631578948
+    }
+  },
+  "class_confusion": {
+    "RBC": {
+      "RBC": 1676,
+      "missed": 23
+    },
+    "WBC": {
+      "WBC": 131,
+      "missed": 2
+    },
+    "Platelet": {
+      "Platelet": 48,
+      "missed": 1
+    }
+  },
+  "recall_by_size_tertile": {
+    "small": 0.9840764331210191,
+    "medium": 0.9856230031948882,
+    "large": 0.988835725677831
+  },
+  "size_tertile_counts": {
+    "small": 628,
+    "medium": 626,
+    "large": 627
+  },
+  "area_tertile_thresholds_px2": [
+    5699.980230017041,
+    10784.379175679998
+  ],
+  "recall_by_boundary_proximity": {
+    "boundary": 0.9909365558912386,
+    "interior": 0.9808558558558559
+  },
+  "boundary_counts": {
+    "boundary": 993,
+    "interior": 888
+  },
+  "recall_by_touching_another_cell": {
+    "touching": 0.9849669272399278,
+    "isolated": 0.9954128440366973
+  },
+  "touching_counts": {
+    "touching": 1663,
+    "isolated": 218
+  },
+  "recall_by_image_density": {
+    "sparse": 0.9913419913419913,
+    "medium": 1.0,
+    "dense": 0.9727722772277227
+  },
+  "density_tertile_counts": {
+    "sparse": 462,
+    "medium": 611,
+    "dense": 808
+  },
+  "density_tertile_thresholds": [
+    12.0,
+    16.0
+  ]
+}

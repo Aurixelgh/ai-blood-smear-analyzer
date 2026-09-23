@@ -1,0 +1,204 @@
+{
+  "backbone": "mobilenet_v3_small",
+  "img_size": 128,
+  "epochs": 8,
+  "batch_size": 64,
+  "lr": 0.001,
+  "train_size": 20060,
+  "val_size": 5275,
+  "test_size": 3599,
+  "class_counts_train": {
+    "basophil": 848,
+    "eosinophil": 2177,
+    "lymphocyte": 849,
+    "monocyte": 993,
+    "neutrophil": 2330,
+    "platelet": 1643,
+    "rbc": 11220
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.1984062175064952,
+      "val_accuracy": 0.9891943127962085,
+      "val_macro_f1": 0.9734033617334037,
+      "epoch_seconds": 687.2914555072784
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.08044410826880224,
+      "val_accuracy": 0.9945023696682465,
+      "val_macro_f1": 0.9825261440031027,
+      "epoch_seconds": 586.5360271930695
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.05282109540707041,
+      "val_accuracy": 0.997914691943128,
+      "val_macro_f1": 0.9940586794263047,
+      "epoch_seconds": 527.8311309814453
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.04773073151926668,
+      "val_accuracy": 0.9893838862559242,
+      "val_macro_f1": 0.9680369525165522,
+      "epoch_seconds": 586.4415581226349
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.05570289919573947,
+      "val_accuracy": 0.997914691943128,
+      "val_macro_f1": 0.9931080226895351,
+      "epoch_seconds": 654.7788796424866
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.04061778026602149,
+      "val_accuracy": 0.9907109004739336,
+      "val_macro_f1": 0.9661636545267497,
+      "epoch_seconds": 577.0705001354218
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.04426676695902924,
+      "val_accuracy": 0.9967772511848341,
+      "val_macro_f1": 0.9903937963389626,
+      "epoch_seconds": 539.3088798522949
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.026323979423744794,
+      "val_accuracy": 0.9982938388625593,
+      "val_macro_f1": 0.9944399423000118,
+      "epoch_seconds": 508.27476239204407
+    }
+  ],
+  "test_metrics": {
+    "accuracy": 0.9952764656849125,
+    "balanced_accuracy": 0.9925591698693134,
+    "macro_f1": 0.9903425395367937,
+    "weighted_f1": 0.9953227278301721,
+    "mcc": 0.9934774795261881,
+    "per_class": {
+      "basophil": {
+        "precision": 0.9336734693877551,
+        "recall": 1.0,
+        "f1": 0.9656992084432717,
+        "support": 183
+      },
+      "eosinophil": {
+        "precision": 1.0,
+        "recall": 0.9935760171306209,
+        "f1": 0.9967776584317938,
+        "support": 467
+      },
+      "lymphocyte": {
+        "precision": 0.994535519125683,
+        "recall": 0.994535519125683,
+        "f1": 0.994535519125683,
+        "support": 183
+      },
+      "monocyte": {
+        "precision": 0.9952380952380953,
+        "recall": 0.9766355140186916,
+        "f1": 0.9858490566037735,
+        "support": 214
+      },
+      "neutrophil": {
+        "precision": 0.9959595959595959,
+        "recall": 0.986,
+        "f1": 0.9909547738693467,
+        "support": 500
+      },
+      "platelet": {
+        "precision": 1.0,
+        "recall": 0.9971671388101983,
+        "f1": 0.9985815602836879,
+        "support": 353
+      },
+      "rbc": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1699
+      }
+    },
+    "confusion_matrix": [
+      [
+        183,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        464,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        182,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        209,
+        2,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        0,
+        0,
+        493,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        352,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1699
+      ]
+    ],
+    "class_order": [
+      "basophil",
+      "eosinophil",
+      "lymphocyte",
+      "monocyte",
+      "neutrophil",
+      "platelet",
+      "rbc"
+    ],
+    "classification_report_text": "              precision    recall  f1-score   support\n\n    basophil       0.93      1.00      0.97       183\n  eosinophil       1.00      0.99      1.00       467\n  lymphocyte       0.99      0.99      0.99       183\n    monocyte       1.00      0.98      0.99       214\n  neutrophil       1.00      0.99      0.99       500\n    platelet       1.00      1.00      1.00       353\n         rbc       1.00      1.00      1.00      1699\n\n    accuracy                           1.00      3599\n   macro avg       0.99      0.99      0.99      3599\nweighted avg       1.00      1.00      1.00      3599\n"
+  },
+  "hardware": "CPU-only (no CUDA GPU available on dev machine, see architecture_decision.md section 1)"
+}

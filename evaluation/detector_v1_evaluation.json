@@ -1,0 +1,27 @@
+{
+  "model": "yolov8n.pt",
+  "epochs": 20,
+  "imgsz": 416,
+  "dataset": "txl_pbc",
+  "classes": [
+    "WBC",
+    "RBC",
+    "Platelet"
+  ],
+  "test_set_metrics": {
+    "map50": 0.9863565785842816,
+    "map50_95": 0.8597500084639653,
+    "precision_per_class": [
+      0.9833466626917651,
+      0.963721405084057,
+      0.9781139461514375
+    ],
+    "recall_per_class": [
+      1.0,
+      0.9599718071019786,
+      0.9121605823158321
+    ]
+  },
+  "hardware": "CPU-only (no CUDA GPU available on dev machine, see architecture_decision.md section 1)",
+  "iou_threshold_note": "Ultralytics default validation IoU threshold (0.5:0.95 sweep for mAP50-95, 0.5 for mAP50) -- see spec section 22 requirement to document IoU/confidence/NMS settings"
+}

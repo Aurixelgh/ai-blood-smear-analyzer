@@ -1,0 +1,309 @@
+# Dataset provenance registry (spec sections 14-15).
+# Same content as dataset_registry.csv, structured form. UNKNOWN = genuinely unverified, never guessed.
+# Generated: 2026-09-05
+
+datasets:
+  - dataset_id: pbc_acevedo
+    name: "PBC (Peripheral Blood Cells) Dataset"
+    original_publication: "Acevedo A, Merino A, Alferez S, Molina A, Boldu L, Rodellar J. Data in Brief 2020;30:105474"
+    pubmed_id: "32346559"
+    pmc_id: "PMC7182702"
+    doi: "10.1016/j.dib.2020.105474"
+    official_repository: "https://doi.org/10.17632/snkd93bnjr.1"
+    kaggle_mirror: "UNKNOWN (multiple untraced mirrors exist; use the official Mendeley link only)"
+    license: "CC BY 4.0"
+    commercial_use: true
+    redistribution: true
+    num_original_images: 17092
+    num_augmented_images: 0
+    classes: [neutrophil, eosinophil, basophil, lymphocyte, monocyte, immature_granulocyte, erythroblast, platelet]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "aggregate only, no per-image donor id"
+    microscope_camera: "CellaVision DM96"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: approved_for_v1
+    known_duplicate_risk: "re-used verbatim inside TXL-PBC; dedupe if pooling both"
+    notes: "Primary classification backbone. Best license of all candidates evaluated."
+
+  - dataset_id: raabin_wbc
+    name: "Raabin-WBC"
+    original_publication: "Kouzehkanan ZM et al. Scientific Reports 2022;12:1123"
+    pubmed_id: "35064165"
+    pmc_id: "PMC8782871"
+    doi: "10.1038/s41598-021-04426-x"
+    official_repository: "https://www.raabindata.com/free-data/"
+    kaggle_mirror: "https://www.kaggle.com/raabindata/datasets"
+    license: "Free for commercial and non-commercial use (publisher statement, not an SPDX-named license)"
+    commercial_use: true
+    redistribution: "UNKNOWN -- treat conservatively, do not redistribute raw images"
+    num_original_images: 40000
+    num_augmented_images: 0
+    classes: [neutrophil, lymphocyte, monocyte, eosinophil, basophil, rbc_color_spots]
+    whole_smear_or_single_cell: both
+    bounding_boxes: "subset"
+    segmentation_masks: "1145 cells (nucleus + cytoplasm)"
+    patient_source_metadata: "smear, camera, and microscope metadata present"
+    microscope_camera: "2 microscopes, 2 cameras"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: approved_for_v1
+    known_duplicate_risk: "re-used verbatim inside TXL-PBC; dedupe if pooling both"
+    notes: "Primary detection/diversity source; only dataset with nucleus+cytoplasm masks at meaningful scale."
+
+  - dataset_id: txl_pbc
+    name: "TXL-PBC (re-annotated integration)"
+    original_publication: "Gan L, Li X, Wang X. Scientific Data 2025;12:1694"
+    pubmed_id: "41145591"
+    pmc_id: "PMC12559723"
+    doi: "10.1038/s41597-025-05980-z"
+    official_repository: "https://figshare.com/articles/dataset/TXL-PBC_Dataset/27073186"
+    kaggle_mirror: "UNKNOWN"
+    license: "Open (Figshare + GitHub); derivative of BCCD (MIT) + PBC (CC BY 4.0) + Raabin (free-use statement) + BCDD (unknown)"
+    commercial_use: "inherits weakest source constraint"
+    redistribution: "inherits weakest source constraint"
+    num_original_images: 1260
+    num_augmented_images: 0
+    classes: [wbc, rbc, platelet]
+    whole_smear_or_single_cell: whole_smear
+    bounding_boxes: "18143 boxes"
+    segmentation_masks: false
+    patient_source_metadata: "inherited from source datasets"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: approved_for_v1
+    known_duplicate_risk: "explicitly re-uses BCCD/Raabin/PBC images -- perceptual-hash dedupe mandatory before pooling"
+    notes: "Primary whole-smear detection backbone (bounding boxes for WBC/RBC/platelet)."
+
+  - dataset_id: ku_optofil_pbc
+    name: "KU-Optofil PBC Dataset"
+    original_publication: "Yarikan AE et al. Scientific Data 2026;13"
+    pubmed_id: "41651863"
+    pmc_id: "PMC13005019"
+    doi: "10.1038/s41597-026-06761-y"
+    official_repository: "https://doi.org/10.5281/zenodo.17333317"
+    kaggle_mirror: "UNKNOWN"
+    license: "UNKNOWN -- pending manual read of the Zenodo record's license field"
+    commercial_use: "UNKNOWN"
+    redistribution: "UNKNOWN"
+    num_original_images: 31489
+    num_augmented_images: 0
+    classes: [segmented_neutrophil, lymphocyte, monocyte, eosinophil, basophil, myelocyte, metamyelocyte, blast, reactive_lymphocyte, "...13 total per paper"]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "anonymized patient identifiers present -- usable for real patient-level splitting"
+    microscope_camera: "Sysmex DI-60"
+    staining: "May-Grunwald-Giemsa"
+    magnification: "100x"
+    tier: 1
+    status: pending_license_confirmation
+    known_duplicate_risk: "none identified"
+    notes: "Largest and most recently published source found (expert Cohen kappa > 0.85). Do NOT use until license confirmed."
+
+  - dataset_id: bccd
+    name: "BCCD (Blood Cell Count and Detection)"
+    original_publication: "No peer-reviewed paper; community dataset"
+    pubmed_id: null
+    doi: null
+    official_repository: "https://github.com/Shenggan/BCCD_Dataset"
+    kaggle_mirror: "https://www.kaggle.com/datasets/orvile/bccd-blood-cell-count-and-detection-dataset"
+    license: "MIT"
+    commercial_use: true
+    redistribution: true
+    num_original_images: 364
+    num_augmented_images: 0
+    classes: [wbc, rbc, platelet]
+    whole_smear_or_single_cell: whole_smear
+    bounding_boxes: "VOC format"
+    segmentation_masks: false
+    patient_source_metadata: "none"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 2
+    status: approved_for_v1
+    known_duplicate_risk: "source of the Kaggle 'Blood Cell Images' augmented set; also re-used inside TXL-PBC"
+    notes: "Original photos credited to 'cosmicad' and 'akshaylamba'. Cleanest license of the detection-oriented sources."
+
+  - dataset_id: kaggle_mooney_bloodcells
+    name: "Blood Cell Images (paultimothymooney)"
+    original_publication: "Derivative of BCCD source photos, no independent paper"
+    pubmed_id: null
+    doi: null
+    official_repository: null
+    kaggle_mirror: "https://www.kaggle.com/datasets/paultimothymooney/blood-cells"
+    license: "Public-domain-style per Kaggle listing; attribution appreciated, not required"
+    commercial_use: "informal yes"
+    redistribution: "informal yes"
+    num_original_images: 410
+    num_augmented_images: 12500
+    classes: [eosinophil, lymphocyte, monocyte, neutrophil]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "none"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 2
+    status: use_parent_only_if_at_all
+    known_duplicate_risk: "12,500 images are augmentations of ~410 originals sharing lineage with BCCD -- never count as independent samples"
+    notes: "Explicitly flagged per spec section 12: Kaggle distribution layer, not independent provenance."
+
+  - dataset_id: lisc
+    name: "LISC (Leukocyte Images for Segmentation and Classification)"
+    original_publication: "Rezatofighi SH, Soltanian-Zadeh H, 2011"
+    pubmed_id: "21300521"
+    doi: "UNKNOWN"
+    official_repository: "http://users.cecs.anu.edu.au/~hrezatofighi/Data/Leukocyte%20Data.htm"
+    kaggle_mirror: null
+    license: "Research/education only. No redistribution. Must be obtained directly from the author's site. Mandatory acknowledgment in any publication."
+    commercial_use: false
+    redistribution: false
+    num_original_images: "UNKNOWN (not confirmed from author page in this pass)"
+    num_augmented_images: 0
+    classes: [basophil, eosinophil, lymphocyte, monocyte, neutrophil, mixed]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: "manual nucleus + cytoplasm"
+    patient_source_metadata: "Imam Khomeini Hospital (Tehran) noted as source; no per-patient id"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: restricted_benchmark_only
+    known_duplicate_risk: "none identified"
+    notes: "Usable only as a non-redistributed local benchmark set with citation; excluded from pooled/redistributed training data."
+
+  - dataset_id: all_idb
+    name: "ALL-IDB (1 and 2)"
+    original_publication: "Labati RD, Piuri V, Scotti F. IEEE ICIP 2011 (conference paper, not PubMed-indexed)"
+    pubmed_id: null
+    doi: "UNKNOWN"
+    official_repository: "https://homes.di.unimi.it/scotti/all/"
+    kaggle_mirror: null
+    license: "Request-only; research use presumed; no public open license confirmed"
+    commercial_use: "UNKNOWN"
+    redistribution: false
+    num_original_images: "ALL-IDB1: ~108; ALL-IDB2: 260 (130 leukemic / 130 normal)"
+    num_augmented_images: 0
+    classes: [leukemic_lymphocyte, normal_lymphocyte]
+    whole_smear_or_single_cell: both
+    bounding_boxes: false
+    segmentation_masks: "ALL-IDB2 only: 260 segmented lymphocytes"
+    patient_source_metadata: "UNKNOWN"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 2
+    status: not_authorized_out_of_scope
+    known_duplicate_risk: "none identified"
+    notes: "Requires direct email authorization from the maintainer (Fabio Scotti). Not obtained. Excluded from v1."
+
+  - dataset_id: c_nmc_2019
+    name: "C_NMC_2019 (ISBI 2019 ALL Challenge, hosted on TCIA)"
+    original_publication: "Companion dataset paper, PMID 35500994"
+    pubmed_id: "35500994"
+    doi: "UNKNOWN"
+    official_repository: "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=52758223"
+    kaggle_mirror: null
+    license: "TCIA standard (CC BY 3.0/4.0 family -- confirm exact version on the collection page)"
+    commercial_use: true
+    redistribution: true
+    num_original_images: 15114
+    num_augmented_images: 0
+    classes: [normal_lymphocyte, malignant_b_all_lymphoblast]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "per-subject ids, 118 subjects"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: approved_for_future_expansion
+    known_duplicate_risk: "none identified"
+    notes: "Out of core v1 7-class scope (leukemia classification is not a v1 target class); retained for a documented future extension with real patient-level splits."
+
+  - dataset_id: aml_cytomorphology_lmu
+    name: "AML-Cytomorphology_LMU (Matek et al.)"
+    original_publication: "Matek C, Schwarz S, Marr C, Spiekermann K. Nature Machine Intelligence 2019"
+    pubmed_id: "UNKNOWN (not indexed at abstract level in this PubMed search pass)"
+    doi: "UNKNOWN"
+    official_repository: "https://www.cancerimagingarchive.net/collection/aml-cytomorphology_lmu/"
+    kaggle_mirror: null
+    license: "TCIA standard license family (typically CC BY 3.0 -- verify per collection page)"
+    commercial_use: true
+    redistribution: true
+    num_original_images: "UNKNOWN (exact N per TCIA collection page, not extracted in this pass)"
+    num_augmented_images: 0
+    classes: ["15 classes including blasts and WBC subtypes"]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "per-patient, AML vs. non-malignant control"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 1
+    status: approved_for_future_expansion
+    known_duplicate_risk: "none identified"
+    notes: "Leukemia-patient population, not healthy donors. Out of core v1 7-class scope; retained for future blast-detection extension."
+
+  - dataset_id: leukemiaattri_lld
+    name: "LeukemiaAttri / LLD (Large Leukemia Dataset)"
+    original_publication: "MICCAI 2024; used in Diaz JM et al., Current Oncology 2026;33(8)"
+    pubmed_id: "42645391"
+    pmc_id: "PMC13510383"
+    doi: "10.3390/curroncol33080486"
+    official_repository: "https://github.com/intelligentMachines-ITU/LLD-Large-Leukemia-dataset-for-microscopic-imagery"
+    kaggle_mirror: null
+    license: "UNKNOWN -- pending GitHub LICENSE file read"
+    commercial_use: "UNKNOWN"
+    redistribution: "UNKNOWN"
+    num_original_images: 2400
+    num_augmented_images: 0
+    classes: ["14 classes: 13 WBC/blast subtypes + artifact"]
+    whole_smear_or_single_cell: whole_smear
+    bounding_boxes: "yes, plus attribute sub-boxes"
+    segmentation_masks: "partial -- attribute boxes approximate nucleus/cytoplasm regions"
+    patient_source_metadata: "per-image patient and acquisition-domain tag"
+    microscope_camera: "multi-domain, multiple microscopes/magnifications"
+    staining: "UNKNOWN"
+    magnification: "40x and 100x (per companion paper)"
+    tier: 2
+    status: pending_license_confirmation
+    known_duplicate_risk: "none identified"
+    notes: "Leukemia-patient population. Do not use until GitHub LICENSE file is read directly."
+
+  - dataset_id: chula_pic_lab
+    name: "Chula-PIC-Lab (RBC morphology)"
+    original_publication: "Referenced only in Dhar P et al., Microscopy Research and Technique 2025;88(5):1566-1581"
+    pubmed_id: "39871114"
+    doi: "10.1002/jemt.24786"
+    official_repository: null
+    kaggle_mirror: null
+    license: "UNKNOWN"
+    commercial_use: "UNKNOWN"
+    redistribution: "UNKNOWN"
+    num_original_images: "UNKNOWN"
+    num_augmented_images: 0
+    classes: [poikilocytosis_abnormal_rbc, anisocytosis_abnormal_rbc]
+    whole_smear_or_single_cell: single_cell
+    bounding_boxes: false
+    segmentation_masks: false
+    patient_source_metadata: "UNKNOWN"
+    microscope_camera: "UNKNOWN"
+    staining: "UNKNOWN"
+    magnification: "UNKNOWN"
+    tier: 2
+    status: unusable_no_public_access_found
+    known_duplicate_risk: "none identified"
+    notes: "No independently verifiable public access point located. NOT used. Direct consequence: RBC morphology-subtype classification is not implemented as a trained model in v1 (see dataset_feasibility_audit.md section 10)."

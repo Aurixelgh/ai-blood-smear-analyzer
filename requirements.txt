@@ -1,0 +1,18 @@
+# Pinned to versions verified working on this dev machine (Python 3.14.7,
+# Windows, CPU-only -- see reports/architecture_decision.md section 1).
+#
+# Streamlit Community Cloud's Python version is pinned via runtime.txt
+# (python-3.14), confirmed compatible -- see architecture_decision.md
+# section 12 item 1. If Cloud ignores runtime.txt, set the same version in
+# the Advanced Settings dialog at deploy time.
+
+numpy==2.5.2
+pillow==12.3.0
+scikit-learn==1.9.0
+opencv-python-headless==5.0.0.93
+# CPU-only builds for Streamlit Community Cloud (no CUDA available there)
+torch==2.14.0+cpu
+torchvision==0.29.0+cpu
+streamlit==1.63.0
+ultralytics==8.4.140
+pytest==9.1.1

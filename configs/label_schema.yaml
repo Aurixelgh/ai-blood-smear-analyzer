@@ -1,0 +1,55 @@
+# Canonical label schema for the 7-class single-cell classifier.
+# Every source dataset's native class names must be mapped here before pooling.
+# "out_of_scope_v1" classes are real cell types present in the source data that
+# are NOT one of the 7 v1 target classes -- they are kept in raw/processed data
+# with their own label for future extension, never silently folded into a
+# target class (spec section 11 requirement).
+
+target_classes:
+  - rbc
+  - neutrophil
+  - lymphocyte
+  - monocyte
+  - eosinophil
+  - basophil
+  - platelet
+
+out_of_scope_v1_classes:
+  - immature_granulocyte   # promyelocyte/myelocyte/metamyelocyte, present in PBC as "ig"
+  - erythroblast           # nucleated RBC precursor, present in PBC as "erythroblast"
+
+source_mappings:
+  pbc_acevedo:
+    folder_to_label:
+      neutrophil: neutrophil
+      eosinophil: eosinophil
+      basophil: basophil
+      lymphocyte: lymphocyte
+      monocyte: monocyte
+      platelet: platelet
+      ig: immature_granulocyte        # out of scope v1, kept for future
+      erythroblast: erythroblast      # out of scope v1, kept for future
+    # PBC has no mature single-cell RBC images -- RBC crops for this project
+    # are sourced from txl_pbc bounding boxes instead. See rbc source below.
+
+  txl_pbc:
+    yolo_class_index_to_label:
+      0: wbc_unclassified   # WBC box only, no subtype -- used for detection only, not classification
+      1: rbc                # used both for detection AND as the RBC classification source
+      2: platelet
+
+  bccd:
+    voc_class_to_label:
+      WBC: wbc_unclassified
+      RBC: rbc
+      Platelets: platelet
+
+notes: >
+  RBC crops for the 7-class classifier are extracted from txl_pbc's YOLO-format
+  RBC bounding boxes (class index 1), since none of the classification-oriented
+  datasets (PBC) contain single-cell mature-RBC images. This is documented,
+  not hidden: RBC classification-training images therefore come from a
+  different acquisition pipeline (whole-smear crops) than the WBC/platelet
+  classification images (dedicated single-cell CellaVision captures), which is
+  a real domain-shift risk to monitor in the evaluation (see evaluation/ per-class
+  reports once training runs).
